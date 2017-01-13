@@ -18,6 +18,9 @@ def play_game():
             print("The word was {}".format(word))
             break
         guess = getchar()
+        while guess.isalpha() == False:
+            print("You must type a LETTER")
+            guess = getchar()
 
         if guess.upper() in guesstring:
             print("you already tried {}".format(guess.upper()))
