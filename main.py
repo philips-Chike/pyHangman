@@ -5,6 +5,10 @@ from getchar import getchar
 import logic #The Game logic
 import pickword #Function wordpick()
 
+def Quit():
+    
+    return 0
+
 def GameOn():
     logic.word = pickword.wordpick()
     del logic.clueline
@@ -15,15 +19,14 @@ def GameOn():
     logic.play_game()
 
     replay = ''
-    print("Do you want to play again? Y/N")
+    print("Do you want to play again?"),
     while replay != "Y" or replay != "N":
         replay = getchar()
         if replay.upper() == "Y" : 
             GameOn()
         elif replay.upper() == "N":
-            print("Goodbye then!")
-            break
+            exit() 
         else :
-            print("You've got a decision to take... Play again? Y/N")
+            print("I'm expecting 'y' or 'n'")
 
 GameOn()
