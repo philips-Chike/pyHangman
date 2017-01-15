@@ -7,13 +7,12 @@ def get_clue():
         clueline.append('_')
 
 def play_game():
-    graphic = 'hangman'
-    drawhangman = art.drawhangman(graphic)
+    guesscount = 0
+    art.drawhangman(guesscount)
     print("Word: "),
     print(' '.join(clueline))
 
     guesstring = ''
-    guesscount = 0
     while '_' in clueline:
         if guesscount > 5:
             print("Sorry, The word was {}".format(word))
@@ -25,7 +24,7 @@ def play_game():
             print("Guess: "),
             guess = getchar()
         else : print(guess)
-
+            
         if guess.upper() in guesstring:
             print("you already tried {}".format(guess.upper()))
             continue
@@ -35,10 +34,9 @@ def play_game():
                     clueline[i] = guess.upper()
         else :
             guesscount += 1
-            graphic = 'hangman' + str(guesscount)
             
         guesstring += guess.upper() 
-        drawhangman = art.drawhangman(graphic)
+        art.drawhangman(guesscount)
         print("\nWord: "),
         print(' '.join(clueline))
         #print("{} guesses left".format(6-guesscount))
